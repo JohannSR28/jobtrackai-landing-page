@@ -45,12 +45,15 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-[12px] sm:gap-[20px] items-start sm:items-center">
-            <button className="px-6 py-4 text-[13px] sm:text-base font-semibold rounded-full border-none cursor-pointer transition-all duration-300 bg-brand-orange text-black hover:bg-brand-orange-hover hover:-translate-y-0.5 shadow-lg shadow-orange-500/20">
+            <a
+              href="#benefits"
+              className="px-6 py-4 text-[13px] sm:text-base font-semibold rounded-full border-none cursor-pointer transition-all duration-300 bg-brand-orange text-black hover:bg-brand-orange-hover hover:-translate-y-0.5 shadow-lg shadow-orange-500/20"
+            >
               {t.ctaStart}
-            </button>
+            </a>
 
             <a
-              href="#"
+              href="#how-it-works"
               className="inline-flex items-center justify-center px-6 py-4 text-[13px] sm:text-base font-semibold rounded-full cursor-pointer transition-all duration-300 bg-transparent text-black border-2 border-black hover:bg-black hover:text-white group"
             >
               {t.ctaLearn}

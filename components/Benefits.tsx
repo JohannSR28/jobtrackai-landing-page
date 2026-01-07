@@ -133,7 +133,10 @@ export default function Benefits() {
 
   return (
     <>
-      <section className="bg-gen-black text-white py-32 relative overflow-hidden">
+      <section
+        id="benefits"
+        className="bg-gen-black text-white py-32 relative overflow-hidden"
+      >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-orange opacity-[0.08] blur-[150px] rounded-full pointer-events-none"></div>
 
         <div className="max-w-[1200px] mx-auto px-6 relative z-10 text-center">

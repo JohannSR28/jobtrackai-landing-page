@@ -61,12 +61,8 @@ export default function Amplify() {
         </div>
 
         {/* Left Column */}
-        <div className="lg:col-span-3 flex flex-col gap-4 order-2 lg:order-1 relative z-20 translate-x-0 lg:translate-x-12 w-full">
-          {/* IMAGE PLACEHOLDER - À réactiver plus tard pour les images */}
-          {/* <div className="bg-white rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden transform -rotate-2 hover:rotate-0 transition-all duration-500 p-2 w-full">
-            <div className="w-full h-64 bg-gray-200 rounded-xl"></div>
-          </div> */}
-
+        {/* MODIFICATION 1 : Ajout de 'items-center' pour mobile et 'lg:items-start' pour desktop */}
+        <div className="lg:col-span-3 flex flex-col items-center lg:items-start gap-4 order-2 lg:order-1 relative z-20 translate-x-0 lg:translate-x-12 w-full">
           {/* Carte 1 : Scan Automatique */}
           <div className="bg-white/65 backdrop-blur-md border border-white/50 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] rounded-2xl p-6 inline-block max-w-[260px] transform -rotate-2 hover:rotate-0 transition-all duration-500">
             <h3 className="font-bold text-sm uppercase tracking-wide text-slate-800">
@@ -81,12 +77,8 @@ export default function Amplify() {
         {/* Right Column */}
         <div className="lg:col-span-3 flex flex-col h-full justify-center order-3 lg:order-3 relative pointer-events-none gap-12 lg:gap-0 w-full">
           {/* Card 2 : Regroupement Intelligent */}
-          <div className="relative z-30 pointer-events-auto ml-0 mt-0 translate-x-0 lg:-ml-24 lg:-mt-44 lg:translate-x-8 w-full">
-            {/* IMAGE PLACEHOLDER - À réactiver plus tard pour les images */}
-            {/* <div className="bg-white rounded-xl shadow-xl border border-gray-100 p-2 mb-2 w-full lg:w-64 transform rotate-2 hover:rotate-0 transition-transform duration-500 origin-bottom-left">
-              <div className="w-full h-64 lg:h-40 bg-gray-200 rounded-lg"></div>
-            </div> */}
-
+          {/* MODIFICATION 2 : Ajout de 'flex justify-center' pour mobile et 'lg:block' pour desktop */}
+          <div className="relative z-30 pointer-events-auto ml-0 mt-0 translate-x-0 lg:-ml-24 lg:-mt-44 lg:translate-x-8 w-full flex justify-center lg:block">
             <div className="bg-white/65 backdrop-blur-md border border-white/50 shadow-xl rounded-xl p-6 inline-block max-w-[260px] ml-0 lg:ml-0 transform rotate-2 hover:rotate-0 transition-all duration-500 origin-bottom-left">
               <h3 className="font-bold text-sm uppercase tracking-wide">
                 {t.card2Title}
@@ -96,12 +88,8 @@ export default function Amplify() {
           </div>
 
           {/* Card 3 : Suivi Centralisé */}
-          <div className="relative z-20 pointer-events-auto flex flex-col items-start lg:items-start text-left lg:text-left mt-0 lg:mt-24 ml-0 lg:ml-0 w-full">
-            {/* IMAGE PLACEHOLDER - À réactiver plus tard pour les images */}
-            {/* <div className="bg-white rounded-xl shadow-2xl p-2 mb-4 w-full lg:w-[240px] transform hover:scale-105 transition-transform duration-500">
-              <div className="w-full h-64 lg:h-48 bg-gray-200 rounded-lg"></div>
-            </div> */}
-
+          {/* MODIFICATION 3 : Remplacement de 'items-start' par 'items-center' (mobile) et 'lg:items-start' (desktop) */}
+          <div className="relative z-20 pointer-events-auto flex flex-col items-center lg:items-start text-left lg:text-left mt-0 lg:mt-24 ml-0 lg:ml-0 w-full">
             <div className="bg-white/65 backdrop-blur-md border border-white/50 shadow-2xl rounded-xl p-6 inline-block max-w-[260px] transform hover:scale-105 transition-all duration-500">
               <h3 className="font-bold text-sm uppercase tracking-wide text-slate-900">
                 {t.card3Title}
