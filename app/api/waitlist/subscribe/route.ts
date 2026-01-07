@@ -131,34 +131,78 @@ export async function POST(req: Request) {
     // 3) construire le lien unsubscribe
     const unsubscribeUrl = `${baseUrl}/api/waitlist/unsubscribe?token=${encodeURIComponent(
       unsubscribeToken
-    )}`;
+    )}&lang=${lang}`;
 
     // 4) email content
     const safeName = escapeHtml(full_name);
 
     const subject =
-      lang === "en" ? "You’re on the list ✅" : "Tu es bien inscrit ✅";
+      lang === "en"
+        ? "Welcome to the JobTrackAI waitlist ✅"
+        : "Bienvenue sur la liste JobTrackAI ✅";
 
     const html =
       lang === "en"
         ? `
-          <div style="font-family:Arial,sans-serif;line-height:1.6">
-            <h2>Thanks ${safeName}!</h2>
-            <p>You’re on the waitlist. We’ll email you when we launch.</p>
-            <p style="margin-top:22px;font-size:12px;color:#666">
-              Unsubscribe anytime: <a href="${unsubscribeUrl}">unsubscribe</a>
-            </p>
-          </div>
-        `
+<div style="font-family:Arial,sans-serif;line-height:1.6;color:#111">
+  <div style="max-width:560px;margin:0 auto;padding:24px;border:1px solid #eee;border-radius:14px">
+    <h2 style="margin:0 0 10px">Thanks ${safeName} 👋</h2>
+    <p style="margin:0 0 12px">
+      You’re officially on the waitlist — you’ll be among the first to know when JobTrackAI launches.
+    </p>
+
+    <p style="margin:0 0 12px">
+      <strong>Heads-up:</strong> our email may appear in <em>Promotions</em> or <em>Spam</em> depending on your inbox settings.
+      If you don’t see it, please check there.
+    </p>
+
+    <p style="margin:0 0 16px">
+      <strong>Planned release:</strong> January 2026.
+    </p>
+
+    <hr style="border:none;border-top:1px solid #eee;margin:18px 0" />
+
+    <p style="margin:0;font-size:12px;color:#666">
+      No longer want updates?
+      <a href="${unsubscribeUrl}" style="color:#111;text-decoration:underline">Unsubscribe</a>.
+    </p>
+
+    <p style="margin:14px 0 0;font-size:12px;color:#666">
+      — JobTrackAI
+    </p>
+  </div>
+</div>
+`
         : `
-          <div style="font-family:Arial,sans-serif;line-height:1.6">
-            <h2>Merci ${safeName} !</h2>
-            <p>Tu es bien sur la liste d’attente. On t’écrira au lancement.</p>
-            <p style="margin-top:22px;font-size:12px;color:#666">
-              Se désinscrire à tout moment : <a href="${unsubscribeUrl}">se désinscrire</a>
-            </p>
-          </div>
-        `;
+<div style="font-family:Arial,sans-serif;line-height:1.6;color:#111">
+  <div style="max-width:560px;margin:0 auto;padding:24px;border:1px solid #eee;border-radius:14px">
+    <h2 style="margin:0 0 10px">Merci ${safeName} 👋</h2>
+    <p style="margin:0 0 12px">
+      Tu es officiellement sur la liste d’attente — tu seras parmi les premiers informés quand JobTrackAI sera disponible.
+    </p>
+
+    <p style="margin:0 0 12px">
+      <strong>Petit rappel :</strong> selon ta boîte mail, notre message peut arriver dans <em>Promotions</em> ou <em>Spam</em>.
+      Si tu ne le vois pas, pense à vérifier ces onglets.
+    </p>
+
+    <p style="margin:0 0 16px">
+      <strong>Sortie prévue :</strong> janvier 2026.
+    </p>
+
+    <hr style="border:none;border-top:1px solid #eee;margin:18px 0" />
+
+    <p style="margin:0;font-size:12px;color:#666">
+      Tu ne veux plus recevoir d’emails ?
+      <a href="${unsubscribeUrl}" style="color:#111;text-decoration:underline">Se désinscrire</a>.
+    </p>
+
+    <p style="margin:14px 0 0;font-size:12px;color:#666">
+      — JobTrackAI
+    </p>
+  </div>
+</div>
+`;
 
     // 5) envoyer email via Gmail SMTP
     const transporter = nodemailer.createTransport({

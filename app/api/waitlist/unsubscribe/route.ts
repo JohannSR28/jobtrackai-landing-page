@@ -37,12 +37,33 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "INVALID_TOKEN" }, { status: 404 });
   }
 
+  const lang = searchParams.get("lang") === "en" ? "en" : "fr";
+
   // UX: page simple au lieu de JSON
   return new NextResponse(
-    `<html><body style="font-family:Arial;padding:40px">
-      <h2>✅ Désinscription réussie</h2>
-      <p>Vous ne recevrez plus d'emails.</p>
-    </body></html>`,
+    lang === "en"
+      ? `<html><body style="font-family:Arial;padding:40px;color:#111">
+        <div style="max-width:560px;margin:0 auto;border:1px solid #eee;border-radius:14px;padding:24px">
+          <h2 style="margin:0 0 10px">✅ You’re unsubscribed</h2>
+          <p style="margin:0 0 12px">
+            You won’t receive any more emails from JobTrackAI.
+          </p>
+          <p style="margin:0;font-size:12px;color:#666">
+            Thanks for trying this out — and you’re always welcome back.
+          </p>
+        </div>
+      </body></html>`
+      : `<html><body style="font-family:Arial;padding:40px;color:#111">
+        <div style="max-width:560px;margin:0 auto;border:1px solid #eee;border-radius:14px;padding:24px">
+          <h2 style="margin:0 0 10px">✅ Désinscription confirmée</h2>
+          <p style="margin:0 0 12px">
+            Tu ne recevras plus d’emails de la part de JobTrackAI.
+          </p>
+          <p style="margin:0;font-size:12px;color:#666">
+            Merci pour ton temps — et tu peux te réinscrire quand tu veux.
+          </p>
+        </div>
+      </body></html>`,
     { headers: { "Content-Type": "text/html; charset=utf-8" } }
   );
 }

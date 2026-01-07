@@ -27,8 +27,9 @@ const translations = {
       "En vous inscrivant, vous acceptez de recevoir un email lors du lancement. Vous pourrez vous désinscrire à tout moment.",
     // Nouveaux textes de succès
     successTitle: "INSCRIPTION RÉUSSIE !",
-    successSubtitle:
-      "Un email de confirmation vient de vous être envoyé. Vos 500 points seront crédités automatiquement à la sortie de l'application.",
+    successSubtitleLine1: "Un email de confirmation vient de vous être envoyé.",
+    successSubtitleLine2:
+      "Si vous ne le voyez pas, vérifiez Promotions ou Spam. Vos 500 points seront crédités au lancement (janvier 2026).",
     closeButton: "Fermer la fenêtre",
   },
   en: {
@@ -54,8 +55,9 @@ const translations = {
       "By registering, you agree to receive an email upon launch. You can unsubscribe at any time.",
     // Nouveaux textes de succès
     successTitle: "REGISTRATION SUCCESSFUL!",
-    successSubtitle:
-      "A confirmation email has just been sent to you. Your 500 points will be credited automatically upon app launch.",
+    successSubtitleLine1: "A confirmation email was just sent.",
+    successSubtitleLine2:
+      "If you don’t see it, check Promotions or Spam. Your 500 points will be credited at launch (January 2026).",
     closeButton: "Close window",
   },
 };
@@ -270,9 +272,13 @@ export default function Benefits() {
                 <h3 className="gen-typo text-2xl mb-4 tracking-tight text-black">
                   {t.successTitle}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-8 px-2">
-                  {t.successSubtitle}
+                <p className="text-gray-600 text-sm leading-relaxed mb-3 px-2">
+                  {t.successSubtitleLine1}
                 </p>
+                <p className="text-gray-500 text-sm leading-relaxed mb-8 px-2">
+                  {t.successSubtitleLine2}
+                </p>
+
                 <button
                   onClick={handleClose}
                   className="w-full bg-brand-orange text-black font-bold py-3 rounded-xl hover:bg-brand-orange-hover transition-colors uppercase tracking-wide text-sm"
