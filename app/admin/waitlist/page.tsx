@@ -156,7 +156,7 @@ export default function AdminBroadcastPage() {
         alert("Erreur: " + result.error);
       }
     } catch (e) {
-      alert("Erreur réseau");
+      alert("Erreur réseau: " + e);
     } finally {
       setSending(false);
     }
