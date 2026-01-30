@@ -63,7 +63,7 @@ export default function Header() {
           </div>
 
           <Link
-            href={MAIN_SITE_URL + "/login"}
+            href={MAIN_SITE_URL + "/login-page"}
             // Modification : text-xs et padding réduit sur mobile
             className="text-xs sm:text-sm font-semibold text-gray-600 hover:text-brand-orange transition-colors px-2 py-2 sm:px-4"
           >
